@@ -1,37 +1,26 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// src/app/layout.tsx
+
 import "./globals.css";
-import BottomNav from './components/BottomNav';
+import { Inter } from "next/font/google";
+import { TimerProvider } from "./context/TimerContext";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "PickleDraft",
-  description: "Fantasy Pickleball App",
+export const metadata = {
+  title: "Telegram Scheduler | Employee Manager [ www.telegramtools.com ]",
+  description: "Telegram Scheduler",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <BottomNav />
+    <html lang="en" className={inter.variable}>
+      <body className="antialiased">{children}
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
