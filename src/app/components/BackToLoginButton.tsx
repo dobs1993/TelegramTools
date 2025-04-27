@@ -1,17 +1,22 @@
-// src/components/BackToLoginButton.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
 
-export default function BackToLoginButton() {
+export function BackToLoginButton() {
   const router = useRouter();
 
+  const handleClick = () => {
+    router.push("/");
+  };
+
   return (
-    <button
-      onClick={() => router.push("/")}
-      className="text-sm text-blue-400 underline hover:text-blue-300 mt-4"
-    >
-      ← Back to Login
-    </button>
+    <div className="fixed top-4 left-4 z-50">
+      <button
+        onClick={handleClick}
+        className="bg-[#0DB0DD] text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-[#0CA3CB] transition cursor-pointer"
+      >
+        ← Login Page 
+      </button>
+    </div>
   );
 }
